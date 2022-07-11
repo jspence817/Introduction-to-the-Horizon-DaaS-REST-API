@@ -44,3 +44,10 @@ attribute.
 rel attribute is for informational purposes and is not required when coding to the API. The
 following table defines the link relationships. 
 
+| Relationship | Description |
+| ----------- | ----------- |
+| `ACTION` | Indicates that the URI performs an action with the resource |
+| `ASSOCIATION` | Indicates that the URI retrieves an associated resource |
+| `MAP` | Indicates that the URI retrieves a map between resources (one-one, one-many, many-many) | 
+| `SELF` | Indicates that the URI is the URI of the container resource. A REST response always contains a link to itself. A `GET` on this URI returns the same URI. |
+| `TOP` | Indicates that the URI is a top-level root resource |

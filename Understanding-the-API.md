@@ -24,3 +24,14 @@ of its retrieval.
 ## Properties and Links
 Resources contain properties and links:
 <ul><li>A property stores a value. For example, the <code>DtUser</code> resource has a <code>loginName</code> property that indicates the name used by a user to log in.</li><li>A link specifies a URI of a related resource or action. For example, the <code>DtUser</code> resource has a <code>desktopPatterns</code> link that retrieves the desktop patterns assigned to a user.</li></ul>
+## Link Attributes
+
+A link has the following attributes:
+<ul><li><code>name</code> – The unique name of the link. The name typically describes the purpose or target of the
+attribute.</li>
+<li><code>href</code> – The URI relative to the server, webapp, and version, for example /infrastructure/pool/
+1000</li>
+<li><code>method</code> – The http method used with the href in the REST API invocation: <code>GET</code>, <code>POST</code>, <code>PUT</code>, or <code>DELETE</code></li>
+<li><code>rel</code> – Describes the relationship between the link and the resource that contains the link. The
+rel attribute is for informational purposes and is not required when coding to the API. The
+following table defines the link relationships.</li>  

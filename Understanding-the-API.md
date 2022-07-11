@@ -10,8 +10,8 @@ be fully controlled with REST APIs, avoid using any of the resources under `DtSe
 
 | Level | Entry Point | Description |
 | ----------- | ----------- | ----------- |
-| 1 | <code>DtPlatform</code> | <ul><li>Top-level entry point for the REST API</li></ul> |
-| 2 | <code>DtVersion</code> | <ul><li>Under <code>DtPlatform</code><br>Provides version-related information about the REST APIs</li></ul> |
+| 1 | `DtPlatform` | <ul><li>Top-level entry point for the REST API</li></ul> |
+| 2 | `DtVersion` | <ul><li>Under `DtPlatform`</li><li>Provides version-related information about the REST APIs</li></ul> |
 | 3 | <code>DtInfrastructureManager</code><br><code>DtInstallManager</code><br><code>DtNotificationManager</code><br><code>DtPoolManager</code><br><code>DtQuotaManager</code><br><code>DtReportingManager</code><br><code>DtSessionManager</code><br><code>DtSettingsManager</code><br><code>DtSystemManager</code><br><code>DtTaskManager</code> | <ul><li>Under <code>DtPlatform</code></li><li>Each of these is a top-level entry point for a category of REST API resources. For example, under <code>DtInfrastructureManager</code>, there are <code>DtDataCenter</code>, <code>DtNetwork</code>, and so on.</li></ul> |
 ## Scope
 The REST APIs have a common object model across the management (service provider and
@@ -23,15 +23,24 @@ providers or tenants. As a result, the same resource contains different links ba
 of its retrieval.
 ## Properties and Links
 Resources contain properties and links:
-<ul><li>A property stores a value. For example, the <code>DtUser</code> resource has a <code>loginName</code> property that indicates the name used by a user to log in.</li><li>A link specifies a URI of a related resource or action. For example, the <code>DtUser</code> resource has a <code>desktopPatterns</code> link that retrieves the desktop patterns assigned to a user.</li></ul>
+* `name` – The unique name of the link. The name typically describes the purpose or target of the
+attribute.
+* `href` – The URI relative to the server, webapp, and version, for example `/infrastructure/pool/
+1000`
+* `method` – The http method used with the href in the REST API invocation: `GET`, `POST`, `PUT`, or
+`DELETE`.
+* `rel` – Describes the relationship between the link and the resource that contains the link. The
+`re`l attribute is for informational purposes and is not required when coding to the API. The
+following table defines the link relationships.
 ## Link Attributes
-
 A link has the following attributes:
-<ul><li><code>name</code> – The unique name of the link. The name typically describes the purpose or target of the
-attribute.</li>
-<li><code>href</code> – The URI relative to the server, webapp, and version, for example /infrastructure/pool/
-1000</li>
-<li><code>method</code> – The http method used with the href in the REST API invocation: <code>GET</code>, <code>POST</code>, <code>PUT</code>, or <code>DELETE</code></li>
-<li><code>rel</code> – Describes the relationship between the link and the resource that contains the link. The
+* `name` – The unique name of the link. The name typically describes the purpose or target of the
+attribute.
+* `href` – The URI relative to the server, webapp, and version, for example `/infrastructure/pool/
+1000`
+* `method` – The http method used with the href in the REST API invocation: `GET`, `POST`, `PUT`, or
+`DELETE`.
+* `rel` – Describes the relationship between the link and the resource that contains the link. The
 rel attribute is for informational purposes and is not required when coding to the API. The
-following table defines the link relationships.</li>  
+following table defines the link relationships. 
+

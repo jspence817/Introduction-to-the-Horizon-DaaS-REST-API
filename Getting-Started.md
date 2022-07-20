@@ -54,23 +54,24 @@ configured for the organization. For example, if only Active Directory authentic
 configured, it is DtCredentials, shown here (the href value is /system/authenticate/
 credentials):
   ```
-  <DtCredentials type="CREDENTIALS"> <DtLink href="/system/authenticate/credentials" method="POST" name="Submit" rel="action"/> </DtCredentials>
+  DtCredentials type="CREDENTIALS" <DtLink href="/system/authenticate/credentials" method="POST" name="Submit" rel="action"/> </DtCredentials>
   ```
 2. To form the message to send for login, look in the documentation for the appropriate
 resource and include required properties, as in the following example.
-<DtCredentials type="CREDENTIALS">
+  ```
+  <DtCredentials type="CREDENTIALS">
 <username>nnnnnnnnn</username>
 <password>xxxxxxxx</password>
 <domain>DEMO-TENANT</domain>
 </DtCredentials>
-3. Send message as POST.
+  ```
+3. Send message as `POST`.
 4. In the HTTP response header, note the following two values:
-n Authorization
-n x-dt-csrf-header
+    * Authorization
+    * x-dt-csrf-header
+  
 Note the following:
-n You must include the Authorization key-value pair in the HTTP request header for every
+  * You must include the Authorization key-value pair in the HTTP request header for every
 subsequent HTTP request you submit after login.
-Introduction to the Horizon DaaS REST API
-VMware, Inc. 8
-n If a request is a type other than GET, you must also include the x-dt-csrf-header key-value
+  * If a request is a type other than `GET`, you must also include the x-dt-csrf-header key-value
 pair.

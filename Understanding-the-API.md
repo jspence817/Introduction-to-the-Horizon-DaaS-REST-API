@@ -51,3 +51,40 @@ following table defines the link relationships.
 | `MAP` | Indicates that the URI retrieves a map between resources (one-one, one-many, many-many) | 
 | `SELF` | Indicates that the URI is the URI of the container resource. A REST response always contains a link to itself. A `GET` on this URI returns the same URI. |
 | `TOP` | Indicates that the URI is a top-level root resource |
+## HTTP Requests
+The HTTP request you use to retrieve a Horizon DaaS Platform resource is constructed as
+follows:
+```
+https://<host>/dt-rest/<version>/<URI>
+```
+* host is the IP address of the administration console or Service Center.
+* version is the version of the REST API. For information on retrieving available versions, see
+Chapter 2 Getting Started.
+* URI is the path to the resource, constructed by traversing the object model and extracting
+path information from the href attribute of a link. For example:
+  ```
+  /infrastructure/manager/mapping/users/default?sep={sep}&users={users}&
+  ```
+* The first component of the path is always the functional area, such as system or
+infrastructure.
+* The /manager component of the path is used only for top-level resources and links served by
+that resource.
+* Curly braces are used to represent request parameter values which you must supply in the
+actual HTTP request. The href attribute uses the following syntax to represent request
+parameters:
+  ```
+  ?p1={p1}&p2={p2}
+  ```
+  For the preceding example, the actual values for the two request parameters (sep and users)
+might look as follows (where sep specifies the character you are using to delimit the user IDs
+in the request):
+  ```
+  ?sep=,&users=1234,5678&
+  ```
+* URL encoding is used to replace characters outside the ASCII set with a percent sign
+character (%) followed by two hexadecimal digits. For example, the question mark character
+(?) is replaced with %3F and the ampersand character (&) is replaced with %26.<br>
+  Here is the complete HTTP request:
+  ```
+  https://Host/dt-rest/v100/infrastructure/manager/mapping/users/default?sep=,&users=1234,5678&
+  ```
